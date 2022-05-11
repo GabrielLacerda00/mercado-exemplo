@@ -21,7 +21,6 @@ public class Lote {
 		this.quantidade = quantidade;
 	}
 	
-	
 
 	public String getId() {
 		return id;
