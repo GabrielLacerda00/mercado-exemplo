@@ -8,7 +8,7 @@ public class Lote {
 	
 	private Produto produto;
 	
-	private Long quantidade; 
+	private Long quantidade;
 	
 	private Date dataFabricacao;
 	
@@ -21,25 +21,67 @@ public class Lote {
 		this.quantidade = quantidade;
 	}
 	
+	
+
 	public String getId() {
 		return id;
 	}
+
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+
 
 	public Produto getProduto() {
 		return produto;
 	}
 
+
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+
+
+
 	public Long getQuantidade() {
 		return quantidade;
 	}
+
+
+
+	public void setQuantidade(Long quantidade) {
+		this.quantidade = quantidade;
+	}
+
+
 
 	public Date getDataFabricacao() {
 		return dataFabricacao;
 	}
 
+
+
+	public void setDataFabricacao(Date dataFabricacao) {
+		this.dataFabricacao = dataFabricacao;
+	}
+
+
+
 	public Date getDataValidade() {
 		return dataValidade;
 	}
+
+
+
+	public void setDataValidade(Date dataValidade) {
+		this.dataValidade = dataValidade;
+	}
+
+
 
 	public String toString() {
 		return "Lote ID: " + getId() + " - Produto: " + getProduto().getNome() + " - " + getQuantidade() + " itens";
