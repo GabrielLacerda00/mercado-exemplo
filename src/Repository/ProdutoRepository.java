@@ -9,25 +9,26 @@ public class ProdutoRepository {
 	
    Map<String,Produto> catalogo = new HashMap<String, Produto>();
    
-   public void addProduto(Produto produto) {
+   public void adicionarProduto(Produto produto) {
 	   catalogo.put(produto.getId(), produto);
    }
    
-   public void atualizaCatalogo(String nome, String novoNome, String novoFabricante) {
-	   //produto.setNome(novoNome);
-	   //produto.setFabricante(novoFabricante);
+   public void atualizaProduto(String id, String novoNome, String novoFabricante) {
+       String produtoId = produto.getId();
+	   produto.setNome(novoNome);
+	   produto.setFabricante(novoFabricante);
    }
    
-   
-   
-   public void removerProduto() {
-	   
+   public void removeProduto(String id) {
+      catalogo.remove(id);
    }
    
-   public void recuperarProduto() {
-	   
+   public Produto pegaProduto(String id) {
+      return catalogo.get(id);
    }
-   
-   
+
+   public void listaDeProdutos() {
+      System.out.println(catalogo.values());
+   }
 
 }
