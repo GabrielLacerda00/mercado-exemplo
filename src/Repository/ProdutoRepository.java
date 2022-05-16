@@ -8,6 +8,7 @@ import exemplo.Produto;
 public class ProdutoRepository {
 	
    Map<String,Produto> catalogo = new HashMap<String, Produto>();
+   List<Produto> listDeProdutos = new List<Produto>();
    
    public void adicionarProduto(Produto produto) {
 	   catalogo.put(produto.getId(), produto);
@@ -23,12 +24,27 @@ public class ProdutoRepository {
       catalogo.remove(id);
    }
    
-   public Produto pegaProduto(String id) {
+   public Produto pegaProdutoById(String id) {
       return catalogo.get(id);
    }
 
    public void listaDeProdutos() {
-      System.out.println(catalogo.values());
+      public List<Produto> listaDeProdutos() {
+         List<Lote> listDeProdutos = new List<Produto>();
+         for (Produto produt: catalogo.values()) {
+            listDeProdutos.add(produt);
+         }
+         return listDeProdutos;
+      }
+   }
+
+   public List<Produto> listProdutoByName(String name) {
+      for (Produto produt: catalogo.values()) {
+         if (produt.getNome().contains(name)){
+             listDeProdutos.add(produt);
+         }
+      }
+      return listDeProdutos;
    }
 
 }

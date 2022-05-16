@@ -2,6 +2,7 @@ package repository;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
 
 import exemplo.Lote;
 
@@ -22,12 +23,16 @@ public class LoteRepository {
         catalogo.remove(id);
     }
 
-    public Produto pegaLote(String id) {
+    public Lote pegaLote(String id) {
         return catalogo.get(id);
     }
 
-    public void listaDeLotes() {
-        System.out.println(catalogo.values());
+    public List<Lote> listaDeLotes() {
+            List<Lote> listDeLotes = new List<Lote>();
+            for (Lote lot: catalogo.values()) {
+                listDeLotes.add(lot);
+            }
+            return listDeLotes;
     }
 
 }
