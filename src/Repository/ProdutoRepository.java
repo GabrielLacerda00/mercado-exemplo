@@ -12,6 +12,7 @@ public class ProdutoRepository {
    
    public void adicionarProduto(Produto produto) {
 	   catalogo.put(produto.getId(), produto);
+       return produto.getId();
    }
    
    public void atualizaProduto(String id, String novoNome, String novoFabricante) {
@@ -36,15 +37,6 @@ public class ProdutoRepository {
          }
          return listDeProdutos;
       }
-   }
-
-   public List<Produto> listProdutoByName(String name) {
-      for (Produto produt: catalogo.values()) {
-         if (produt.getNome().contains(name)){
-             listDeProdutos.add(produt);
-         }
-      }
-      return listDeProdutos;
    }
 
 }

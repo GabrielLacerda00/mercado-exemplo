@@ -12,6 +12,7 @@ public class LoteRepository {
 
     public void adicionarLote(Lote lote) {
         catalogo.put(lote.getId(), lote);
+        return lote.getId();
     }
 
     public void atualizaLote(String id, long quantidade) {
@@ -28,11 +29,12 @@ public class LoteRepository {
     }
 
     public List<Lote> listaDeLotes() {
-            List<Lote> listDeLotes = new List<Lote>();
-            for (Lote lot: catalogo.values()) {
-                listDeLotes.add(lot);
-            }
-            return listDeLotes;
+        List<Lote> listDeLotes = new List<Lote>();
+        for (Lote lot: catalogo.values()) {
+            listDeLotes.add(lot);
+        }
+        return listDeLotes;
     }
+
 
 }

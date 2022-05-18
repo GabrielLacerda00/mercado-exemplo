@@ -1,29 +1,56 @@
 package Services;
 
+
+import exemplo.Lote;
+import exemplo.Produto;
 import Repository.ProdutoRepository;
 import Repository.LoteRepository;
-import java.util.List;
 
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collection;
 
 
 public class ProdutoService {
 
-    private ProdutoRepository produtReposit;
-    private LoteRepository loteReposit;
+     ProdutoRepository produtReposit;
+     LoteRepository loteReposit;
 
-    public List<Produto> listaProdsLote(){
+     public ProdutoService( ProdutoRepository produtReposit,LoteRepository loteReposit){
+         this.loteReposit = loteReposit;
+         this.produtReposit = produtReposit;
+     }
 
-        List<Lote> lotess = LoteRepository.listaDeLotes();
-        List<Produto> produts = getProdutsFromLote(lotess);
+    public List<Produto> listaProdutsLoteByName(){
+        List<Lote> produts = getProdutswithLote();
+        return getProdutsWithLote(lotess);
     }
 
-    private List<Produto>  getProdutsFromLote(){
+    private List<Produto>  getProdutswithLote(){
+        List<Produto> produts = new ArrayList<Produto>();
+        for (Lote lot : this.loteReposit.getAll()) {
+            produts.add(lot.getProduto());
+        }
+        return(produts);
+    }
+
+    public List<Produto> listProdutoByName(String name) {
+        return getProdutsByName(nome,this.produtReposit.getAll());
+    }
+
+    private List<Produto> getProdutsByName(String nome, Collection<Produto> produts){
+        List<Produto> listDeProdutss = new ArrayList<Produto>();
+        for (Produto produto: produts){
+            if (produto.getNome().toLowerCase().contains(nome.toLowerCase())){
+                listDeProdutss.add(produto);
+            }
+            return listDeProdutss;
+        }
 
     }
 
-    public List<Produto> listaProdsByName() {
-
+    public void adicionarProduto(Produto prod) {
+        this.produtReposit.adicionarProduto(prod);
     }
-
 
 }
